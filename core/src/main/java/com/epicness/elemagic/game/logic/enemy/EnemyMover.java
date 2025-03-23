@@ -2,6 +2,7 @@ package com.epicness.elemagic.game.logic.enemy;
 
 import static com.epicness.fundamentals.utils.ArrayUtils.loopArray;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.epicness.elemagic.game.logic.BaseHandler;
 import com.epicness.elemagic.game.logic.GameLogicHandler;
@@ -28,7 +29,12 @@ public class EnemyMover extends GameLogicHandler {
     }
 
     private void moveEnemy(Enemy enemy, float delta) {
-        enemy.translate(enemy.direction.cpy().scl(80f * delta));
+        enemy.translate(
+            enemy.circle.getCenter().dst(base.getCenter()) < 30f ?
+                enemy.direction.cpy().setToRandomDirection()
+                    :
+                enemy.direction.cpy().scl(80f * delta)
+        );
     }
 
     private void checkArrivalToBase(Enemy enemy) {

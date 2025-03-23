@@ -16,7 +16,7 @@ public class BaseHandler extends GameLogicHandler {
         lives = stuff.getLives();
         for (int i = 0; i < 10; i++) {
             SpritePlus life = new SpritePlus(sharedAssets.getSquare32());
-            life.setPosition(BATTLEFIELD_SIZE, VIEWPORT_HEIGHT - 25f - i * 50f);
+            life.setPosition(BATTLEFIELD_SIZE+5f, VIEWPORT_HEIGHT - 75f - i * 29f);
             life.setColor(YELLOW);
             life.setSize(25f);
             lives.add(life);
@@ -24,9 +24,9 @@ public class BaseHandler extends GameLogicHandler {
     }
 
     public void loseLife() {
+        if (lives.isEmpty()) return;
+
+
         lives.pop();
-        if (lives.isEmpty()) {
-            // game over
-        }
     }
 }
