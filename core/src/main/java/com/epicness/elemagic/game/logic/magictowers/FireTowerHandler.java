@@ -26,7 +26,7 @@ public class FireTowerHandler extends GameLogicHandler {
 
     private void spawnFireBall(float x, float y) {
         float angle = MathUtils.random(360f);
-        MagicBall ball = new MagicBall(sharedAssets.getDot(), FIRE, x, y, new Vector2(1f, 0f).setAngleDeg(angle));
+        MagicBall ball = new MagicBall(FIRE, x, y, new Vector2(1f, 0f).setAngleDeg(angle));
         balls.add(ball);
     }
 }

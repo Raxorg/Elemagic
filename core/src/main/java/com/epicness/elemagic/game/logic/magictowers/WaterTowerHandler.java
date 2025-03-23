@@ -27,7 +27,7 @@ public class WaterTowerHandler extends GameLogicHandler {
         float angle = MathUtils.random(360f);
         x += 50f * MathUtils.cosDeg(angle);
         y += 50f * MathUtils.sinDeg(angle);
-        MagicBall ball = new MagicBall(sharedAssets.getDot(), WATER, x, y, null);
+        MagicBall ball = new MagicBall(WATER, x, y, null);
         balls.add(ball);
     }
 }

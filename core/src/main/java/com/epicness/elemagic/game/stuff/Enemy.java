@@ -9,7 +9,7 @@ import com.epicness.fundamentals.stuff.shapes.bidimensional.Drawable2D;
 
 public class Enemy implements Drawable2D {
 
-    private final CirclePlus circle;
+    public final CirclePlus circle;
     public final Vector2 direction;
     public int health;
 
@@ -27,6 +27,10 @@ public class Enemy implements Drawable2D {
 
     @Override
     public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
+    }
+
+    public void translate(Vector2 amount) {
+        circle.translate(amount);
     }
 
     public void setColor(Color color) {
