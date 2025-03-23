@@ -6,6 +6,7 @@ import static com.epicness.elemagic.game.constants.GameConstants.TOWER_SIZE;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.epicness.elemagic.game.constants.Element;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.SpritePlus;
@@ -28,6 +29,14 @@ public class MagicTower implements SpriteBatchDrawable {
         darkColor = color.cpy().lerp(BLACK, 0.7f);
 
         this.element = element;
+    }
+
+    public boolean overlaps(MagicTower other) {
+        return sprite.getBoundingRectangle().overlaps(other.sprite.getBoundingRectangle());
+    }
+
+    public boolean overlaps(Rectangle rectangle) {
+        return sprite.getBoundingRectangle().overlaps(rectangle);
     }
 
     @Override

@@ -18,15 +18,15 @@ public class WaterTowerHandler extends GameLogicHandler {
     }
 
     public void spawnWaterBalls(MagicTower tower) {
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 9; i++) {
             spawnWaterBall(tower.getCenterX(), tower.getCenterY());
         }
     }
 
     private void spawnWaterBall(float x, float y) {
         float angle = MathUtils.random(360f);
-        x += 50f * MathUtils.cosDeg(angle);
-        y += 50f * MathUtils.sinDeg(angle);
+        x += 60f * MathUtils.cosDeg(angle);
+        y += 60f * MathUtils.sinDeg(angle);
         MagicBall ball = new MagicBall(WATER, x, y, null);
         balls.add(ball);
     }

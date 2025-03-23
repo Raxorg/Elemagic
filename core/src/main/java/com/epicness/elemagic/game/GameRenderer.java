@@ -15,17 +15,17 @@ public class GameRenderer extends Renderer<GameStuff> {
         useStaticCamera();
         spriteBatch.begin();
         stuff.getBattlefield().draw(spriteBatch);
-        drawArray(stuff.getTowers());
-        drawArray(stuff.getLifeWaves());
-        drawArray(stuff.getEnemies());
         stuff.getMagicBar().draw(spriteBatch);
         stuff.getFireOption().draw(spriteBatch);
         stuff.getWaterOption().draw(spriteBatch);
         stuff.getLifeOption().draw(spriteBatch);
-        stuff.getBase().draw(spriteBatch);
         stuff.getEasterEgg().draw(spriteBatch);
         drawArray(stuff.getBalls());
+        drawArray(stuff.getTowers());
+        drawArray(stuff.getLifeWaves());
+        drawArray(stuff.getEnemies());
         drawArray(stuff.getLives());
+        stuff.getBase().draw(spriteBatch);
         spriteBatch.end();
     }
 }

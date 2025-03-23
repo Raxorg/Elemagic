@@ -4,6 +4,7 @@ import com.epicness.elemagic.game.logic.enemy.EnemyMover;
 import com.epicness.elemagic.game.logic.enemy.EnemySpawner;
 import com.epicness.elemagic.game.logic.magicballs.FireBallHandler;
 import com.epicness.elemagic.game.logic.magicballs.MagicBallHandler;
+import com.epicness.elemagic.game.logic.magicballs.WaterBallHandler;
 import com.epicness.elemagic.game.logic.magictowers.FireTowerHandler;
 import com.epicness.elemagic.game.logic.magictowers.LifeTowerHandler;
 import com.epicness.elemagic.game.logic.magictowers.LifeWaveHandler;
@@ -26,6 +27,7 @@ public class GameLogic extends Logic {
     public GameLogic() {
         registerHandler(magicBallHandler = new MagicBallHandler());
         registerHandler(new FireBallHandler());
+        registerHandler(new WaterBallHandler());
 
         registerHandler(magicTowerHandler = new MagicTowerHandler());
         registerHandler(new FireTowerHandler());
