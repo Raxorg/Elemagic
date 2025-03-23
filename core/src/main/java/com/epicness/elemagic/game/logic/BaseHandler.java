@@ -27,7 +27,8 @@ public class BaseHandler extends GameLogicHandler {
     public void loseLife() {
         if (lives.isEmpty()) {
 
-            stuff.getLifeText().setText("Game Over :(");
+            stuff.getLifeText().setText("Game Over :C");
+            get(ScoreHandler.class).disable();
             return;
         }
 
