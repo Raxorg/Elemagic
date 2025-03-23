@@ -57,6 +57,9 @@ www-test/
 ## TeaVM:
 # Not sure yet...
 
+## Automation
+/automation/build/
+
 ## IntelliJ, Android Studio:
 .idea/
 *.ipr

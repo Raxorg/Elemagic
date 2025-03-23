@@ -37,7 +37,7 @@ public class EnemySpawner extends GameLogicHandler {
     }
 
     private void spawnEnemy() {
-        int health = 1 + spawnedEnemies / 5;
+        int health = 1 + spawnedEnemies / 8;
 
         float angle = MathUtils.random(360f);
         Vector2 enemyPosition = new Vector2(1f, 0f);

@@ -19,7 +19,7 @@ public class FireTowerHandler extends GameLogicHandler {
     }
 
     public void spawnFireBalls(MagicTower tower) {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             spawnFireBall(tower.getCenterX(), tower.getCenterY());
         }
     }

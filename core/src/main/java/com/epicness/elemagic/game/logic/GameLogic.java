@@ -33,6 +33,7 @@ public class GameLogic extends Logic {
         registerHandler(new WaterTowerHandler());
         registerHandler(lifeWaveHandler = new LifeWaveHandler());
 
+        registerHandler(new EasterEggHandler());
         registerHandler(enemyMover = new EnemyMover());
         registerHandler(enemySpawner = new EnemySpawner());
         registerHandler(magicBarHandler = new MagicBarHandler());

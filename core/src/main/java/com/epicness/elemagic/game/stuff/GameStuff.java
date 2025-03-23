@@ -10,8 +10,9 @@ import static com.epicness.elemagic.game.constants.GameConstants.BATTLEFIELD_SIZ
 import static com.epicness.elemagic.game.constants.GameConstants.BATTLEFIELD_Y;
 import static com.epicness.fundamentals.constants.ColorConstants.LIBGDX_MATTE;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.SnapshotArray;
-import com.epicness.elemagic.game.GameAssets;
+import com.epicness.elemagic.game.assets.GameAssets;
 import com.epicness.fundamentals.stuff.SpritePlus;
 import com.epicness.fundamentals.stuff.Stuff;
 
@@ -25,6 +26,7 @@ public class GameStuff extends Stuff<GameAssets> {
     private TowerOption fireOption, waterOption, lifeOption;
     private SnapshotArray<MagicBall> balls;
     private SpritePlus base;
+    private SpritePlus easterEgg;
 
     @Override
     public void initializeStuff() {
@@ -54,6 +56,10 @@ public class GameStuff extends Stuff<GameAssets> {
         base.setSize(25f);
         base.setOriginCenter();
         base.setOriginBasedPosition(BASE_X, BASE_Y);
+
+        easterEgg = new SpritePlus(sharedAssets.getWeirdShape());
+        easterEgg.setPosition(BATTLEFIELD_SIZE, BATTLEFIELD_Y);
+        easterEgg.setColor(new Color(1f, 1f, 1f, 0.04f));
     }
 
     public SnapshotArray<MagicTower> getTowers() {
@@ -94,5 +100,9 @@ public class GameStuff extends Stuff<GameAssets> {
 
     public SpritePlus getBase() {
         return base;
+    }
+
+    public SpritePlus getEasterEgg() {
+        return easterEgg;
     }
 }

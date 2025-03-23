@@ -18,7 +18,7 @@ public class WaterTowerHandler extends GameLogicHandler {
     }
 
     public void spawnWaterBalls(MagicTower tower) {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 7; i++) {
             spawnWaterBall(tower.getCenterX(), tower.getCenterY());
         }
     }
