@@ -29,16 +29,16 @@ public class EnemyMover extends GameLogicHandler {
     }
 
     private void moveEnemy(Enemy enemy, float delta) {
-        enemy.translate(
-            enemy.circle.getCenter().dst(base.getCenter()) < 30f ?
-                enemy.direction.cpy().setToRandomDirection()
-                    :
-                enemy.direction.cpy().scl(80f * delta)
-        );
+        if (enemy.circle.getCenter().dst(base.getCenter()) < 28f) {
+            enemy.translate(enemy.direction.cpy().setToRandomDirection());
+        } else {
+            enemy.translate(enemy.direction.cpy().scl(80f * delta));
+        }
+
     }
 
     private void checkArrivalToBase(Enemy enemy) {
-        if (enemy.circle.getCenter().dst(base.getCenter()) < 10f) {
+        if (enemy.circle.getCenter().dst(base.getCenter()) < 19f) {
             enemies.removeValue(enemy, true);
             get(BaseHandler.class).loseLife();
         }

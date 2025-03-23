@@ -9,6 +9,7 @@ import static com.epicness.elemagic.game.constants.GameConstants.BASE_Y;
 import static com.epicness.elemagic.game.constants.GameConstants.BATTLEFIELD_SIZE;
 import static com.epicness.elemagic.game.constants.GameConstants.BATTLEFIELD_Y;
 import static com.epicness.fundamentals.constants.ColorConstants.LIBGDX_MATTE;
+import static com.epicness.fundamentals.constants.SharedConstants.VIEWPORT_HEIGHT;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.SnapshotArray;
@@ -29,7 +30,7 @@ public class GameStuff extends Stuff<GameAssets> {
     private SpritePlus base;
     private SnapshotArray<SpritePlus> lives;
     private SpritePlus easterEgg;
-    private Text score, enemyHealth, manaText;
+    private Text score, enemyHealth, manaText, lifeText;
 
     @Override
     public void initializeStuff() {
@@ -77,6 +78,10 @@ public class GameStuff extends Stuff<GameAssets> {
         manaText = new Text(sharedAssets.getPixelFont());
         manaText.setPosition(-170f, 40f);
         manaText.setText("Mana: 19");
+
+        lifeText = new Text(sharedAssets.getPixelFont());
+        lifeText.setPosition(BATTLEFIELD_SIZE+5, VIEWPORT_HEIGHT-15);
+
     }
 
     public SnapshotArray<MagicTower> getTowers() {
@@ -137,5 +142,9 @@ public class GameStuff extends Stuff<GameAssets> {
 
     public Text getManaText() {
         return manaText;
+    }
+
+    public Text getLifeText(){
+        return lifeText;
     }
 }

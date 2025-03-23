@@ -29,6 +29,7 @@ public class GameRenderer extends Renderer<GameStuff> {
         stuff.getScore().draw(spriteBatch);
         stuff.getEnemyHealth().draw(spriteBatch);
         stuff.getManaText().draw(spriteBatch);
+        stuff.getLifeText().draw(spriteBatch);
         spriteBatch.end();
     }
 }

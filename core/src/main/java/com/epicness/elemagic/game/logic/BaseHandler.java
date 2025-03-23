@@ -13,6 +13,7 @@ public class BaseHandler extends GameLogicHandler {
 
     @Override
     protected void init() {
+        stuff.getLifeText().setText("Lives : 10");
         lives = stuff.getLives();
         for (int i = 0; i < 10; i++) {
             SpritePlus life = new SpritePlus(sharedAssets.getSquare32());
@@ -24,9 +25,15 @@ public class BaseHandler extends GameLogicHandler {
     }
 
     public void loseLife() {
-        if (lives.isEmpty()) return;
+        if (lives.isEmpty()) {
+
+            stuff.getLifeText().setText("Game Over :(");
+            return;
+        }
 
 
         lives.pop();
+
+        stuff.getLifeText().setText("Lives : "+lives.size);
     }
 }
