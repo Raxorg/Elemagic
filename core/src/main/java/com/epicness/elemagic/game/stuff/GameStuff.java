@@ -26,6 +26,7 @@ public class GameStuff extends Stuff<GameAssets> {
     private TowerOption fireOption, waterOption, lifeOption;
     private SnapshotArray<MagicBall> balls;
     private SpritePlus base;
+    private SnapshotArray<SpritePlus> lives;
     private SpritePlus easterEgg;
 
     @Override
@@ -56,6 +57,8 @@ public class GameStuff extends Stuff<GameAssets> {
         base.setSize(25f);
         base.setOriginCenter();
         base.setOriginBasedPosition(BASE_X, BASE_Y);
+
+        lives = new SnapshotArray<>();
 
         easterEgg = new SpritePlus(sharedAssets.getWeirdShape());
         easterEgg.setPosition(BATTLEFIELD_SIZE, BATTLEFIELD_Y);
@@ -100,6 +103,10 @@ public class GameStuff extends Stuff<GameAssets> {
 
     public SpritePlus getBase() {
         return base;
+    }
+
+    public SnapshotArray<SpritePlus> getLives() {
+        return lives;
     }
 
     public SpritePlus getEasterEgg() {

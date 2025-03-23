@@ -25,6 +25,7 @@ public class GameRenderer extends Renderer<GameStuff> {
         stuff.getBase().draw(spriteBatch);
         stuff.getEasterEgg().draw(spriteBatch);
         drawArray(stuff.getBalls());
+        drawArray(stuff.getLives());
         spriteBatch.end();
     }
 }
