@@ -17,6 +17,10 @@ public class GameConstants {
     public static final int WATER_COST = 3;
     public static final int LIFE_COST = 10;
 
+    public static final float TOWER_ACTIVATION_COOLDOWN = 2f;
+    public static final float LIFE_TOWER_COOLDOWN = 4f;
+
+    public static final float MAGIC_REPLENISH_RATE = 2f;
     public static final int INITIAL_MAGIC = 19;
 
     public static final Color LIFE_WAVE_COLOR = new Color(0f, 1f, 0f, 0.3f);

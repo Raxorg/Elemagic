@@ -1,5 +1,7 @@
 package com.epicness.elemagic.game.logic.magictowers;
 
+import static com.epicness.elemagic.game.constants.GameConstants.TOWER_ACTIVATION_COOLDOWN;
+
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.epicness.elemagic.game.logic.GameLogicHandler;
@@ -48,6 +50,15 @@ public class LifeWaveHandler extends GameLogicHandler {
 
     private void activateTower(MagicTower tower) {
         if (tower.activationCooldown > 0) return;
-        tower.activationCooldown = 1f;
+
+        switch (tower.getElement()) {
+            case FIRE:
+                get(FireTowerHandler.class).spawnFireBalls(tower);
+                break;
+            case WATER:
+                get(WaterTowerHandler.class).spawnWaterBalls(tower);
+                break;
+        }
+        tower.activationCooldown = TOWER_ACTIVATION_COOLDOWN;
     }
 }

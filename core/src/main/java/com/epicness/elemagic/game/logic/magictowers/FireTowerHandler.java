@@ -3,6 +3,7 @@ package com.epicness.elemagic.game.logic.magictowers;
 import static com.epicness.elemagic.game.constants.Element.FIRE;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.epicness.elemagic.game.logic.GameLogicHandler;
 import com.epicness.elemagic.game.stuff.MagicBall;
@@ -17,21 +18,15 @@ public class FireTowerHandler extends GameLogicHandler {
         balls = stuff.getBalls();
     }
 
-    public void updateCooldown(MagicTower tower, float delta) {
-        tower.spawnCooldown -= delta;
-        if (tower.spawnCooldown <= 0f) {
-            spawnFireBall(tower);
+    public void spawnFireBalls(MagicTower tower) {
+        for (int i = 0; i < 5; i++) {
+            spawnFireBall(tower.getCenterX(), tower.getCenterY());
         }
     }
 
-    public void spawnFireBall(MagicTower tower) {
-        float x = tower.getCenterX();
-        float y = tower.getCenterY();
+    private void spawnFireBall(float x, float y) {
         float angle = MathUtils.random(360f);
-        x += 30f * MathUtils.cosDeg(angle);
-        y += 30f * MathUtils.sinDeg(angle);
-        MagicBall ball = new MagicBall(sharedAssets.getDot(), FIRE, x, y);
+        MagicBall ball = new MagicBall(sharedAssets.getDot(), FIRE, x, y, new Vector2(1f, 0f).setAngleDeg(angle));
         balls.add(ball);
-        tower.spawnCooldown = 5f;
     }
 }

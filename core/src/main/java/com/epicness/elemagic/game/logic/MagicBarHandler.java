@@ -3,6 +3,7 @@ package com.epicness.elemagic.game.logic;
 import static com.badlogic.gdx.graphics.Color.SKY;
 import static com.epicness.elemagic.game.constants.GameConstants.INITIAL_MAGIC;
 import static com.epicness.elemagic.game.constants.GameConstants.MAGIC_PORTION_SIZE;
+import static com.epicness.elemagic.game.constants.GameConstants.MAGIC_REPLENISH_RATE;
 import static com.epicness.elemagic.game.constants.GameConstants.MAX_MAGIC;
 
 import com.epicness.elemagic.game.stuff.MagicBar;
@@ -26,7 +27,7 @@ public class MagicBarHandler extends GameLogicHandler {
     @Override
     protected void update(float delta) {
         time += delta;
-        if (time >= 1f) {
+        if (time >= MAGIC_REPLENISH_RATE) {
             addMagic();
             time = 0f;
         }
