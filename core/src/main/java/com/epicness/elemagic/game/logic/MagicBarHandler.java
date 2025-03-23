@@ -8,17 +8,20 @@ import static com.epicness.elemagic.game.constants.GameConstants.MAX_MAGIC;
 
 import com.epicness.elemagic.game.stuff.MagicBar;
 import com.epicness.fundamentals.stuff.SpritePlus;
+import com.epicness.fundamentals.stuff.Text;
 
 public class MagicBarHandler extends GameLogicHandler {
 
     private MagicBar magicBar;
-    private SpritePlus currentPortion;
+    private Text manaText;
 
+    private SpritePlus currentPortion;
     private float time;
 
     @Override
     protected void init() {
         magicBar = stuff.getMagicBar();
+        manaText = stuff.getManaText();
         for (int i = 0; i < INITIAL_MAGIC; i++) {
             addMagic();
         }
@@ -42,6 +45,8 @@ public class MagicBarHandler extends GameLogicHandler {
         if (currentPortion != null) portion.setX(currentPortion.getEndX());
         magicBar.getPortions().add(portion);
         currentPortion = magicBar.getPortions().get(magicBar.getPortions().size - 1);
+
+        manaText.setText("Mana: " + magicBar.getPortions().size);
     }
 
     public int getMagic() {
@@ -57,5 +62,6 @@ public class MagicBarHandler extends GameLogicHandler {
         } else {
             currentPortion = magicBar.getPortions().get(portions - 1);
         }
+        manaText.setText("Mana: " + portions);
     }
 }
