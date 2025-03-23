@@ -4,6 +4,7 @@ import static com.badlogic.gdx.graphics.Color.BLUE;
 import static com.badlogic.gdx.graphics.Color.GREEN;
 import static com.badlogic.gdx.graphics.Color.RED;
 import static com.badlogic.gdx.graphics.Color.YELLOW;
+import static com.epicness.elemagic.game.constants.GameConstants.BASE_X;
 import static com.epicness.elemagic.game.constants.GameConstants.BASE_Y;
 import static com.epicness.elemagic.game.constants.GameConstants.BATTLEFIELD_SIZE;
 import static com.epicness.elemagic.game.constants.GameConstants.BATTLEFIELD_Y;
@@ -19,6 +20,7 @@ public class GameStuff extends Stuff<GameAssets> {
     private SpritePlus battlefield;
     private SnapshotArray<MagicTower> towers;
     private SnapshotArray<LifeWave> lifeWaves;
+    private SnapshotArray<Enemy> enemies;
     private MagicBar magicBar;
     private TowerOption fireOption, waterOption, lifeOption;
     private SnapshotArray<MagicBall> balls;
@@ -33,6 +35,7 @@ public class GameStuff extends Stuff<GameAssets> {
 
         towers = new SnapshotArray<>();
         lifeWaves = new SnapshotArray<>();
+        enemies = new SnapshotArray<>();
         magicBar = new MagicBar();
 
         fireOption = new TowerOption(sharedAssets.getSquare32(), sharedAssets.getPixelFont(), RED, "Fire");
@@ -50,7 +53,7 @@ public class GameStuff extends Stuff<GameAssets> {
         base.setColor(YELLOW);
         base.setSize(25f);
         base.setOriginCenter();
-        base.setOriginBasedPosition(500f, BASE_Y);
+        base.setOriginBasedPosition(BASE_X, BASE_Y);
     }
 
     public SnapshotArray<MagicTower> getTowers() {
@@ -59,6 +62,10 @@ public class GameStuff extends Stuff<GameAssets> {
 
     public SnapshotArray<LifeWave> getLifeWaves() {
         return lifeWaves;
+    }
+
+    public SnapshotArray<Enemy> getEnemies() {
+        return enemies;
     }
 
     public MagicBar getMagicBar() {

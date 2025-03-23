@@ -25,5 +25,8 @@ public class GameConstants {
 
     public static final Color LIFE_WAVE_COLOR = new Color(0f, 1f, 0f, 0.3f);
 
+    public static final float BASE_X = BATTLEFIELD_SIZE / 2f;
     public static final float BASE_Y = BATTLEFIELD_Y + BATTLEFIELD_SIZE / 2f;
+
+    public static final float ENEMY_SPAWN_RATE = 1f;
 }

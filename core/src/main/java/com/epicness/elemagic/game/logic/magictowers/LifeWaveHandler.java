@@ -42,7 +42,7 @@ public class LifeWaveHandler extends GameLogicHandler {
         for (int i = 0; i < towers.size; i++) {
             MagicTower tower = towers.get(i);
             towerPosition.set(tower.getCenterX(), tower.getCenterY());
-            if (towerPosition.dst(waveOrigin) < wave.getSize()) {
+            if (towerPosition.dst(waveOrigin) < wave.getSize() / 2f) {
                 activateTower(tower);
             }
         }

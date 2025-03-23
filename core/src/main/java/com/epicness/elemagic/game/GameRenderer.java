@@ -17,6 +17,7 @@ public class GameRenderer extends Renderer<GameStuff> {
         stuff.getBattlefield().draw(spriteBatch);
         drawArray(stuff.getTowers());
         drawArray(stuff.getLifeWaves());
+        drawArray(stuff.getEnemies());
         stuff.getMagicBar().draw(spriteBatch);
         stuff.getFireOption().draw(spriteBatch);
         stuff.getWaterOption().draw(spriteBatch);

@@ -36,4 +36,8 @@ public class MagicBall implements SpriteBatchDrawable {
     public void translate(Vector2 amount) {
         sprite.translate(amount);
     }
+
+    public Vector2 getCenter() {
+        return sprite.getCenter();
+    }
 }
