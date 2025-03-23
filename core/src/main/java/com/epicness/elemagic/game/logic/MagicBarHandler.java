@@ -1,0 +1,59 @@
+package com.epicness.elemagic.game.logic;
+
+import static com.badlogic.gdx.graphics.Color.SKY;
+import static com.epicness.elemagic.game.constants.GameConstants.MAGIC_PORTION_SIZE;
+import static com.epicness.elemagic.game.constants.GameConstants.MAX_MAGIC;
+
+import com.epicness.elemagic.game.stuff.MagicBar;
+import com.epicness.fundamentals.stuff.SpritePlus;
+
+public class MagicBarHandler extends GameLogicHandler {
+
+    private MagicBar magicBar;
+    private SpritePlus currentPortion;
+
+    private float time;
+
+    @Override
+    protected void init() {
+        magicBar = stuff.getMagicBar();
+        addPortion();
+        addPortion();
+        addPortion();
+    }
+
+    @Override
+    protected void update(float delta) {
+        time += delta;
+        if (time >= 1f) {
+            addPortion();
+            time = 0f;
+        }
+    }
+
+    private void addPortion() {
+        if (magicBar.getPortions().size == MAX_MAGIC) return;
+
+        SpritePlus portion = new SpritePlus(sharedAssets.getSquare32());
+        portion.setSize(MAGIC_PORTION_SIZE);
+        portion.setColor(SKY);
+        if (currentPortion != null) portion.setX(currentPortion.getEndX());
+        magicBar.getPortions().add(portion);
+        currentPortion = magicBar.getPortions().get(magicBar.getPortions().size - 1);
+    }
+
+    public int getMagic() {
+        return magicBar.getPortions().size;
+    }
+
+    public void removeMagic(int amount) {
+        int portions = magicBar.getPortions().size;
+        magicBar.getPortions().removeRange(portions - amount, portions - 1);
+        portions = magicBar.getPortions().size;
+        if (portions == 0) {
+            currentPortion = null;
+        } else {
+            currentPortion = magicBar.getPortions().get(portions - 1);
+        }
+    }
+}
