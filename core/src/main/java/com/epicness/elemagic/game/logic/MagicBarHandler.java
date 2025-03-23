@@ -1,6 +1,7 @@
 package com.epicness.elemagic.game.logic;
 
 import static com.badlogic.gdx.graphics.Color.SKY;
+import static com.epicness.elemagic.game.constants.GameConstants.INITIAL_MAGIC;
 import static com.epicness.elemagic.game.constants.GameConstants.MAGIC_PORTION_SIZE;
 import static com.epicness.elemagic.game.constants.GameConstants.MAX_MAGIC;
 
@@ -17,21 +18,21 @@ public class MagicBarHandler extends GameLogicHandler {
     @Override
     protected void init() {
         magicBar = stuff.getMagicBar();
-        addPortion();
-        addPortion();
-        addPortion();
+        for (int i = 0; i < INITIAL_MAGIC; i++) {
+            addMagic();
+        }
     }
 
     @Override
     protected void update(float delta) {
         time += delta;
         if (time >= 1f) {
-            addPortion();
+            addMagic();
             time = 0f;
         }
     }
 
-    private void addPortion() {
+    private void addMagic() {
         if (magicBar.getPortions().size == MAX_MAGIC) return;
 
         SpritePlus portion = new SpritePlus(sharedAssets.getSquare32());

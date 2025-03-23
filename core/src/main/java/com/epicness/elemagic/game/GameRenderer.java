@@ -16,12 +16,13 @@ public class GameRenderer extends Renderer<GameStuff> {
         spriteBatch.begin();
         stuff.getBattlefield().draw(spriteBatch);
         drawArray(stuff.getTowers());
+        drawArray(stuff.getLifeWaves());
         stuff.getMagicBar().draw(spriteBatch);
         stuff.getFireOption().draw(spriteBatch);
         stuff.getWaterOption().draw(spriteBatch);
         stuff.getLifeOption().draw(spriteBatch);
-        drawArray(stuff.getBalls());
         stuff.getBase().draw(spriteBatch);
+        drawArray(stuff.getBalls());
         spriteBatch.end();
     }
 }

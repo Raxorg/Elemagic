@@ -14,7 +14,7 @@ public class MagicTower implements SpriteBatchDrawable {
 
     private final SpritePlus sprite;
     private final Element element;
-    public float cooldown;
+    public float spawnCooldown, activationCooldown;
 
     public MagicTower(Sprite towerSprite, Color color, Element element, float x, float y) {
         sprite = new SpritePlus(towerSprite);

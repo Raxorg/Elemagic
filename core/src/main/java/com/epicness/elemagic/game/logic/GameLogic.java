@@ -2,6 +2,7 @@ package com.epicness.elemagic.game.logic;
 
 import com.epicness.elemagic.game.logic.magictowers.FireTowerHandler;
 import com.epicness.elemagic.game.logic.magictowers.LifeTowerHandler;
+import com.epicness.elemagic.game.logic.magictowers.LifeWaveHandler;
 import com.epicness.elemagic.game.logic.magictowers.MagicTowerHandler;
 import com.epicness.elemagic.game.logic.magictowers.TowerSpawner;
 import com.epicness.elemagic.game.logic.magictowers.WaterTowerHandler;
@@ -10,6 +11,8 @@ import com.epicness.fundamentals.logic.Logic;
 public class GameLogic extends Logic {
 
     private final MagicTowerHandler magicTowerHandler;
+    private final LifeWaveHandler lifeWaveHandler;
+
     private final MagicBarHandler magicBarHandler;
 
     public GameLogic() {
@@ -17,6 +20,7 @@ public class GameLogic extends Logic {
         registerHandler(new FireTowerHandler());
         registerHandler(new LifeTowerHandler());
         registerHandler(new WaterTowerHandler());
+        registerHandler(lifeWaveHandler = new LifeWaveHandler());
 
         registerHandler(magicBarHandler = new MagicBarHandler());
         registerHandler(new MagicOptionHandler());
@@ -26,6 +30,8 @@ public class GameLogic extends Logic {
     @Override
     public void update() {
         magicTowerHandler.update();
+        lifeWaveHandler.update();
+
         magicBarHandler.update();
     }
 

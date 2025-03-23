@@ -18,14 +18,13 @@ public class FireTowerHandler extends GameLogicHandler {
     }
 
     public void updateCooldown(MagicTower tower, float delta) {
-        tower.cooldown -= delta;
-        if (tower.cooldown <= 0f) {
+        tower.spawnCooldown -= delta;
+        if (tower.spawnCooldown <= 0f) {
             spawnFireBall(tower);
-            tower.cooldown = 5f;
         }
     }
 
-    private void spawnFireBall(MagicTower tower) {
+    public void spawnFireBall(MagicTower tower) {
         float x = tower.getCenterX();
         float y = tower.getCenterY();
         float angle = MathUtils.random(360f);
@@ -33,5 +32,6 @@ public class FireTowerHandler extends GameLogicHandler {
         y += 30f * MathUtils.sinDeg(angle);
         MagicBall ball = new MagicBall(sharedAssets.getDot(), FIRE, x, y);
         balls.add(ball);
+        tower.spawnCooldown = 5f;
     }
 }

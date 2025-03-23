@@ -18,6 +18,7 @@ public class GameStuff extends Stuff<GameAssets> {
 
     private SpritePlus battlefield;
     private SnapshotArray<MagicTower> towers;
+    private SnapshotArray<LifeWave> lifeWaves;
     private MagicBar magicBar;
     private TowerOption fireOption, waterOption, lifeOption;
     private SnapshotArray<MagicBall> balls;
@@ -31,6 +32,7 @@ public class GameStuff extends Stuff<GameAssets> {
         battlefield.setY(BATTLEFIELD_Y);
 
         towers = new SnapshotArray<>();
+        lifeWaves = new SnapshotArray<>();
         magicBar = new MagicBar();
 
         fireOption = new TowerOption(sharedAssets.getSquare32(), sharedAssets.getPixelFont(), RED, "Fire");
@@ -53,6 +55,10 @@ public class GameStuff extends Stuff<GameAssets> {
 
     public SnapshotArray<MagicTower> getTowers() {
         return towers;
+    }
+
+    public SnapshotArray<LifeWave> getLifeWaves() {
+        return lifeWaves;
     }
 
     public MagicBar getMagicBar() {
