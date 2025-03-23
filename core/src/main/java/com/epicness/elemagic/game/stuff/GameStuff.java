@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.SnapshotArray;
 import com.epicness.elemagic.game.assets.GameAssets;
 import com.epicness.fundamentals.stuff.SpritePlus;
 import com.epicness.fundamentals.stuff.Stuff;
+import com.epicness.fundamentals.stuff.Text;
 
 public class GameStuff extends Stuff<GameAssets> {
 
@@ -28,6 +29,7 @@ public class GameStuff extends Stuff<GameAssets> {
     private SpritePlus base;
     private SnapshotArray<SpritePlus> lives;
     private SpritePlus easterEgg;
+    private Text score;
 
     @Override
     public void initializeStuff() {
@@ -63,6 +65,10 @@ public class GameStuff extends Stuff<GameAssets> {
         easterEgg = new SpritePlus(sharedAssets.getWeirdShape());
         easterEgg.setPosition(BATTLEFIELD_SIZE, BATTLEFIELD_Y);
         easterEgg.setColor(new Color(1f, 1f, 1f, 0.04f));
+
+        score = new Text(sharedAssets.getPixelFont());
+        score.setPosition(-300f, 900f);
+        score.setText("Score: 0");
     }
 
     public SnapshotArray<MagicTower> getTowers() {
@@ -111,5 +117,9 @@ public class GameStuff extends Stuff<GameAssets> {
 
     public SpritePlus getEasterEgg() {
         return easterEgg;
+    }
+
+    public Text getScore() {
+        return score;
     }
 }

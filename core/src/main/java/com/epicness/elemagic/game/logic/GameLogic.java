@@ -42,6 +42,7 @@ public class GameLogic extends Logic {
         registerHandler(magicBarHandler = new MagicBarHandler());
         registerHandler(new MagicOptionHandler());
         registerHandler(new TowerSpawner());
+        registerHandler(new TextHandler());
     }
 
     @Override

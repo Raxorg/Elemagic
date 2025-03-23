@@ -4,6 +4,7 @@ import static com.epicness.fundamentals.utils.ArrayUtils.loopArray;
 
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.epicness.elemagic.game.logic.GameLogicHandler;
+import com.epicness.elemagic.game.logic.TextHandler;
 import com.epicness.elemagic.game.stuff.Enemy;
 import com.epicness.elemagic.game.stuff.MagicBall;
 import com.epicness.fundamentals.utils.CollisionUtils;
@@ -26,6 +27,7 @@ public class WaterBallHandler extends GameLogicHandler {
                 enemy.health--;
                 if (enemy.health <= 0) {
                     enemies.removeValue(enemy, true);
+                    get(TextHandler.class).addScore(10);
                 }
             }
         });
