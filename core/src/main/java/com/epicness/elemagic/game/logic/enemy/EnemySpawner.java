@@ -10,12 +10,14 @@ import com.badlogic.gdx.utils.SnapshotArray;
 import com.epicness.elemagic.game.logic.GameLogicHandler;
 import com.epicness.elemagic.game.stuff.Enemy;
 import com.epicness.fundamentals.stuff.SpritePlus;
+import com.epicness.fundamentals.stuff.Text;
 import com.epicness.fundamentals.utils.AngleUtils;
 
 public class EnemySpawner extends GameLogicHandler {
 
     private SnapshotArray<Enemy> enemies;
     private SpritePlus battlefield;
+    private Text enemyHealth;
 
     private int spawnedEnemies;
     private float time;
@@ -24,6 +26,7 @@ public class EnemySpawner extends GameLogicHandler {
     protected void init() {
         enemies = stuff.getEnemies();
         battlefield = stuff.getBattlefield();
+        enemyHealth = stuff.getEnemyHealth();
     }
 
     @Override
@@ -38,6 +41,7 @@ public class EnemySpawner extends GameLogicHandler {
 
     private void spawnEnemy() {
         int health = 1 + spawnedEnemies / 8;
+        enemyHealth.setText("Enemy HP: " + health);
 
         float angle = MathUtils.random(360f);
         Vector2 enemyPosition = new Vector2(1f, 0f);

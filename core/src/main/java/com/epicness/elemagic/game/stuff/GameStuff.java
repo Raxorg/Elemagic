@@ -29,7 +29,7 @@ public class GameStuff extends Stuff<GameAssets> {
     private SpritePlus base;
     private SnapshotArray<SpritePlus> lives;
     private SpritePlus easterEgg;
-    private Text score;
+    private Text score, enemyHealth;
 
     @Override
     public void initializeStuff() {
@@ -67,8 +67,12 @@ public class GameStuff extends Stuff<GameAssets> {
         easterEgg.setColor(new Color(1f, 1f, 1f, 0.04f));
 
         score = new Text(sharedAssets.getPixelFont());
-        score.setPosition(-300f, 900f);
+        score.setPosition(-300f, 930f);
         score.setText("Score: 0");
+
+        enemyHealth = new Text(sharedAssets.getPixelFont());
+        enemyHealth.setPosition(-300f, 860f);
+        enemyHealth.setText("Enemy HP: 1");
     }
 
     public SnapshotArray<MagicTower> getTowers() {
@@ -121,5 +125,9 @@ public class GameStuff extends Stuff<GameAssets> {
 
     public Text getScore() {
         return score;
+    }
+
+    public Text getEnemyHealth() {
+        return enemyHealth;
     }
 }
